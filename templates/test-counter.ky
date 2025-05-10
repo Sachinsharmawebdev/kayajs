@@ -1,0 +1,22 @@
+<useLogic>
+// Simple counter test
+let count = 0;
+
+const increment = () => {
+  count++;
+  console.log('Incrementing, new count:', count);
+  return { count };
+}
+
+const decrement = () => {
+  count--;
+  console.log('Decrementing, new count:', count);
+  return { count };
+}
+</useLogic>
+
+<div class="counter" data-component-id="counter">
+  <h2>Counter: {{ count }}</h2>
+  <button @click=increment>Increment</button>
+  <button @click=decrement>Decrement</button>
+</div> 

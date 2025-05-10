@@ -1,0 +1,72 @@
+<useLogic>
+// String variable
+const title = "Welcome to KayaJS";
+
+// Number variable
+const version = 1.0;
+
+// Boolean variable
+const isLoggedIn = true;
+
+// Array variable
+const menuItems = ["Home", "About", "Contact"];
+
+// Object variable
+const user = {
+  name: "John Doe",
+  role: "admin"
+};
+
+// Function variable
+const formatTitle = (text) => `[${text}]`;
+
+// Event handler function
+const handleClick = (event) => {
+  console.log("Header clicked:", event.target);
+  alert("Header clicked!");
+};
+
+// Complex function with parameters
+const calculateTotal = (items) => {
+  return items.reduce((sum, item) => sum + item.price, 0);
+};
+
+// Async function
+const fetchData = async () => {
+  return new Promise(resolve => {
+    setTimeout(() => resolve("Data loaded!"), 1000);
+  });
+};
+
+// Event handler with parameters
+const handleMenuClick = (item) => {
+  console.log("Menu item clicked:", item);
+  alert(`Selected: ${item}`);
+};
+</useLogic>
+
+<header @handleClick>
+  <h1>{{ formatTitle(title) }}</h1>
+  <p>Version: {{ version }}</p>
+  
+  {{ if isLoggedIn }}
+    <div class="user-info">
+      <p>Welcome, {{ user.name }}</p>
+      <p>Role: {{ user.role }}</p>
+    </div>
+  {{ /if }}
+
+  <nav>
+    {{ forEach menuItems as item }}
+      <button @handleMenuClick="click">{{ item }}</button>
+    {{ /forEach }}
+  </nav>
+
+  <div class="status">
+    {{ if isLoggedIn }}
+      <span class="online">Online</span>
+    {{ else }}
+      <span class="offline">Offline</span>
+    {{ /if }}
+  </div>
+</header>

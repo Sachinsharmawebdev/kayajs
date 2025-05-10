@@ -1,0 +1,11 @@
+<useLogic>
+// Test variable
+let testMessage = "Hello from useLogic!";
+let counterPath = "./test-counter.ky";
+</useLogic>
+
+<div class="main-container" data-component-id="main">
+  <h1>Testing Variable Access</h1>
+  <p>Message from useLogic: {{ testMessage }}</p>
+  {{ import counterPath }}
+</div>
